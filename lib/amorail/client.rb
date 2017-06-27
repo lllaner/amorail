@@ -49,8 +49,9 @@ module Amorail
     end
 
     def get(url, params_in = {})
-      headers = (params_in[:headers]) ? params_in.slice(:headers)[:headers] : nil
-      params  = params_in.slice( *params_in.keys.map { |x| (x == :headers) ? nil : x } )      
+      headers = params_in[:headers]
+      params  = params_in.clone
+      params.delete(:headers)      
       response = connect.get(url, params) do |request|
         request.headers['Cookie'] = cookies if cookies.present?
         headers&.each { |k, v| request.headers[k.to_s] = v.to_s }
@@ -59,8 +60,9 @@ module Amorail
     end
 
     def post(url, params_in = {})
-      headers = (params_in[:headers]) ? params_in.slice(:headers)[:headers] : nil
-      params  = params_in.slice( *params_in.keys.map { |x| (x == :headers) ? nil : x } )
+      headers = params_in[:headers]
+      params  = params_in.clone
+      params.delete(:headers)
       response = connect.post(url) do |request|
         request.headers['Cookie'] = cookies if cookies.present?
         request.headers['Content-Type'] = 'application/json'
