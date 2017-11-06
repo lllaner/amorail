@@ -22,7 +22,7 @@ describe Amorail::TaskType do
   end
 
   describe "#params" do
-    let(:user) do
+    let(:task_type) do
       described_class.new(
           name: 'Mars',
           code: 321,
@@ -30,7 +30,7 @@ describe Amorail::TaskType do
       )
     end
 
-    subject { user.params }
+    subject { task_type.params }
 
     specify { is_expected.to include(:last_modified) }
     specify { is_expected.to include(name: 'Mars') }
