@@ -44,10 +44,6 @@ module Amorail # :nodoc: all
         (body_response(response)[amo_response_name] || [])
           .map { |info| new.reload_model(info) }
       end
-
-      def body_response(response)
-        response.body['response']
-      end
     end
 
     def load_record(id)

@@ -2,9 +2,7 @@ require 'amorail/entities/leadable'
 
 module Amorail
   class TaskType < Amorail::Entity
-    include Leadable
-
-    amo_names 'users'
+    amo_names 'task_types'
 
     amo_field :name, :code, :id
 
@@ -14,14 +12,8 @@ module Amorail
       '/private/api/v2/json/accounts/current/task_types'
     end
 
-    def body_response(response)
+    def self.body_response(response)
       response.body['response']['account']
-    end
-
-    def params
-      data = super
-      data[:type] = 'task_types'
-      data
     end
   end
 end

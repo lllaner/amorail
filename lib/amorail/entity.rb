@@ -51,6 +51,10 @@ module Amorail
         url += "?api_key=#{client.api_key}&login=#{client.usermail}" if url.include?('/unsorted/')
         url
       end
+
+      def body_response(response)
+        response.body['response']
+      end
     end
 
     amo_field :id, :request_id, :responsible_user_id,
