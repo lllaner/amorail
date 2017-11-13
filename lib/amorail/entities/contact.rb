@@ -6,7 +6,7 @@ module Amorail
     include Leadable
     amo_names 'contacts'
 
-    amo_field :name, :company_name, :linked_company_id
+    amo_field :name, :company_name, :linked_company_id, :created_user_id
 
     amo_property :email, enum: 'WORK'
     amo_property :phone, enum: 'MOB'

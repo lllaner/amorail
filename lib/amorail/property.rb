@@ -48,7 +48,7 @@ module Amorail
     end
 
     attr_reader :client, :data, :contacts,
-                :company, :leads, :tasks, :users, :task_types
+                :company, :leads, :tasks, :users, :task_types, :pipelines
 
     def initialize(client)
       @client = client
@@ -96,6 +96,15 @@ module Amorail
     class TaskType < PropertyItem
       self.source_name = 'task_types'
     end
+
+    class LeadStatus < PropertyItem
+      self.source_name = 'lead_statuses'
+    end
+
+    class Pipeline < PropertyItem
+      self.source_name = 'pipelines'
+    end
+
 
     class Lead < PropertyItem
       self.source_name = 'leads'

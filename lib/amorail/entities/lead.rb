@@ -3,7 +3,7 @@ module Amorail
   class Lead < Amorail::Entity
     amo_names 'leads'
 
-    amo_field :name, :price, :status_id, :tags
+    amo_field :name, :price, :status_id, :tags, :pipeline_id, :responsible_user_id, :created_user_id, :date_create, :date_close, :main_contact_id
 
     validates :name, :status_id, presence: true
 
