@@ -11,6 +11,7 @@ module Amorail
     amo_property :email, enum: 'WORK'
     amo_property :phone, enum: 'MOB'
     amo_property :position
+    amo_property :ga_id
 
     validates :name, presence: true
 
