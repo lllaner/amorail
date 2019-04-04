@@ -58,7 +58,7 @@ module Amorail # :nodoc: all
 
     def normalize_custom_fields(val)
       val.reject do |field|
-        field[:values].all? { |item| !item[:value] }
+        (field[:values] || field['values'] ).all? { |item| !(item[:value] || item['value']) }
       end
     end
 
