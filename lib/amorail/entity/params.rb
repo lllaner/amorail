@@ -8,7 +8,7 @@ module Amorail # :nodoc: all
         data[k] = send("to_#{v}", send(k))
       end
       if properties.respond_to?(amo_name)
-        data[:custom_fields] = client.try(:custom_options).try(:any?) ? custom_options(client.custom_options) : custom_fields
+        data[:custom_fields] = client&.custom_options&.any? ? custom_options(client.custom_options) : custom_fields
       end
       normalize_params(data)
     end
@@ -58,7 +58,7 @@ module Amorail # :nodoc: all
 
     def normalize_custom_fields(val)
       val.reject do |field|
-        field[:values].all? { |item| !item[:value] }
+        (field[:values] || field['values'] ).all? { |item| !(item[:value] || item['value']) }
       end
     end
 
