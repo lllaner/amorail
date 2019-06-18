@@ -3,7 +3,7 @@ module Amorail
   class Task < Amorail::Entity
     amo_names "tasks"
 
-    amo_field :element_id, :element_type, :text,
+    amo_field :element_id, :element_type, :text, :is_completed,
               :task_type, :responsible_user_id, complete_till: :timestamp
 
     validates :text, :element_id,
