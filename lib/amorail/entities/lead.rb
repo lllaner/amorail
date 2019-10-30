@@ -4,7 +4,8 @@ module Amorail
     amo_names 'leads'
 
     amo_field :name, :price, :status_id, :tags, :pipeline_id, :responsible_user_id, :created_user_id, :date_create, :date_close, :main_contact_id
-
+    amo_property :custom_fields
+    
     validates :name, :status_id, presence: true
 
     def reload
