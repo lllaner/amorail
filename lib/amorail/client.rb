@@ -12,14 +12,6 @@ module Amorail
   class Client
     attr_reader :usermail, :api_key, :api_endpoint, :custom_options, :client_id, :client_secret, :redirect_uri
     attr_accessor :access_token
-    #def initialize(attrs = {})
-      #@endpoint = attrs[:endpoint]
-    #  @access_token = attrs[:access_token]
-    #  @client_id = attrs[:client_id]
-    #  @client_secret = attrs[:client_secret]
-    #  @redirect_uri = attrs[:redirect_uri]
-      #@scope = attrs[:scope]
-    #end
 
     def oauth2client
       @_oauth2client ||=
