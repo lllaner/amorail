@@ -10,8 +10,8 @@ API_HOST = 'https://istat24.amocrm.ru'
 module Amorail
   # Amorail http client
   class Client
-    attr_reader :usermail, :api_key, :api_endpoint, :custom_options, :client_id, :client_secret, :redirect_uri
     attr_accessor :access_token
+    attr_reader :usermail, :api_key, :api_endpoint, :custom_options, :client_id, :client_secret, :redirect_uri
 
     def initialize(api_endpoint: Amorail.config.api_endpoint,
                    api_key: Amorail.config.api_key,
