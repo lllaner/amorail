@@ -71,6 +71,7 @@ module Amorail
 
     def fetch_refresh_token(refresh_token)
       return unless oauth2client
+      @_oauth2client.site = api_endpoint
 
       token = oauth2client.get_token(
         refresh_token: refresh_token,
