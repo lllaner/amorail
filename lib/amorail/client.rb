@@ -5,7 +5,6 @@ require 'active_support'
 require 'oauth2'
 
 OAUTH_ENDPOINT = 'https://www.amocrm.ru'
-API_HOST = 'https://istat24.amocrm.ru'
 
 module Amorail
   # Amorail http client
@@ -57,7 +56,7 @@ module Amorail
 
     def fetch_access_token(code)
       return unless oauth2client
-      @_oauth2client.site = API_HOST
+      @_oauth2client.site = api_endpoint
 
       token = oauth2client.auth_code.get_token(code, redirect_uri: redirect_uri)
       token.params.merge(
