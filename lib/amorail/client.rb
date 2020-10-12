@@ -108,7 +108,8 @@ module Amorail
     def safe_request(method, url, params = {})
       send(method, url, params)
     rescue ::Amorail::AmoUnauthorizedError
-      authorize
+      # FIXME: remove old method for authorize
+      # authorize
       send(method, url, params)
     end
 
